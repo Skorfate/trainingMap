@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
 import {reducer as form } from 'redux-form';
 import createSagaMiddleware from 'redux-saga';
-
+import generadora from '../Saga/Saga';
 const reducerPrueba = (state = [],action) => {
     switch(action.type){
-        case 'AUMENTAR_PRUEBA': 
+        case 'LOGIN': 
             return [...state,1];
         break;
         default:
@@ -13,13 +13,15 @@ const reducerPrueba = (state = [],action) => {
     }
 };
 
+
+
 const reducers = combineReducers({
     reducerPrueba,
     form
 })
 
-const sagaMidleware = createSagaMiddleware (); 
+const sagaMiddleware = createSagaMiddleware (); 
 
-const store = createStore(reducers, applyMiddleware(sagaMidleware));
-
+const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(generadora);
 export default store;

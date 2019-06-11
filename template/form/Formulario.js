@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, TextInput} from 'react-native';
 import { Field, reduxForm } from 'redux-form';
-import StylesRow from '../../styles/StyleRow';
 import GradientButtonApp from '../button/GradientButton';
 
 
@@ -25,7 +24,7 @@ const LoginForm = (props) => {
             <Field name='password' component={field} ph='Contraseña' ste={'true'} />
             <View style = {styles.marginButtons}>
                 <GradientButtonApp colorBegin ="#D69C00" colorEnd = "#E7D000" direccion = "diagonal"
-                    title="Iniciar Sesión" action={props.handleSubmit(() => props.login)} />
+                    title="Iniciar Sesión" action={props.handleSubmit( () => this.props.login)} />
             </View>
         </View>
     );

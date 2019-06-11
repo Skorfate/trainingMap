@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 class Login extends React.Component {
     loginUsuaruio = (values) => {
         console.log(values);
-        
-        
+        this.props.autentificarse(values);
       };
     
     render() {
@@ -29,7 +28,7 @@ const mapStateToProps = (state,ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        autentificarse: () => {
+        autentificarse: (values) => {
             dispatch({type: 'LOGIN',datos : values})
         }
     }
