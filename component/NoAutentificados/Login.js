@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class Login extends React.Component {
     loginUsuaruio = (values) => {
         console.log(values);
-        this.props.autentificarse(values);
+        
         
       };
     

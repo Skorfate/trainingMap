@@ -7,9 +7,9 @@ import Map from './component/Autentificados/Map';
 export default function App() {
   return (
     
-      <Provider store={Store}>
+    <Provider store={Store}>
         <RutaNoAutentificada/>
-     </Provider>
+    </Provider>
   
    
     
