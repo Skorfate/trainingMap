@@ -3,6 +3,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer } from 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Mapa from './Map';
 import Login from '../NoAutentificados/Login';
+import MenuDrawer from '../../template/Drawer/MenuDrawer'
 
 const leftIcon = (navigation, icon) => <Icon
     name={icon}
@@ -26,7 +27,7 @@ const navigationOptions = {
         }
     }
 };
-
+/*
 const RutasAuth = createDrawerNavigator(
     {
         map: {
@@ -59,6 +60,28 @@ const RutasAuth = createDrawerNavigator(
 
     },
     {
+        contentComponent: MenuDrawer,
+        drawerBackgroundColor: 'white',
+        contentOptions: {
+            activeTintColor: 'blue',
+            activeBackgroundColor: 'transparent',
+            inactiveTintColor: 'red',
+            itemsConstainerStyle: {
+                marginVertical : 4,
+            }
+        },  
+        defaultNavigationOptions : navigationOptions
+    }
+);*/
+
+const RutasAuth = createDrawerNavigator(
+    {
+        map: Mapa,
+        Salir : Mapa,
+        Contacto : Mapa
+    },
+    {
+        
         drawerBackgroundColor: 'white',
         contentOptions: {
             activeTintColor: 'blue',

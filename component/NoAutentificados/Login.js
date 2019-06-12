@@ -5,17 +5,16 @@ import { connect } from 'react-redux';
 import { accionLogin,accionSession,accionSessionBad } from '../../store/Action';
 
 class Login extends React.Component {
-    loginUsuaruio = (values) => {
-        console.log('accionLogin_ ',accionLogin);
-        this.props.autentificarse(values);
-        console.log(this.props.prop);
+    loginUsuaruio = (values) => {       
+        this.props.autentificarse(values);        
       };
     
-    render() {
+    render(){
         const {navigation} = this.props;
+      
         return (           
-            <View style={{ justifyContent: 'center',padding: 30, alignContent: 'center' }}>
-                <LoginForm login={this.loginUsuaruio} />
+            <View style={{ justifyContent: 'center',padding: 30, alignContent: 'center', flex:2 }}>
+                <LoginForm login={this.loginUsuaruio}/>
                 {this.props.usuario && this.props.usuario.isError && <Text style={{ color: 'red' }}>Usuario invalido</Text>}
             </View>
             

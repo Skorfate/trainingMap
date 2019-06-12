@@ -24,9 +24,7 @@ const reducerSession = (state = null,action) => {
         case CONSTANTES.SESSION_INVALID:
             return action.usuario;
         break;
-        case CONSTANTES.GET_SESSION:
-        console.log('reducer state',state);
-        console.log('reducer',action);
+        case CONSTANTES.GET_SESSION:      
             return state;
         break;
 

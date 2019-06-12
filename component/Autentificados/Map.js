@@ -11,7 +11,7 @@ class Map extends React.Component {
 
         this.state = {
             markers :[
-                {
+                {   key : 1,
                     latlng: {
                         latitude: -33.535840,
                         longitude: -70.573289
@@ -20,6 +20,7 @@ class Map extends React.Component {
                     ,pincolor : 'red'
                 },
                 {
+                    key : 2,
                     latlng: {
                         latitude: -33.535098,
                         longitude: -70.573366
@@ -27,6 +28,7 @@ class Map extends React.Component {
                     ,pincolor : 'blue'
                 },
                 {
+                    key : 3,
                     latlng: {
                         latitude: -33.535801,
                         longitude: -70.573646
@@ -34,6 +36,7 @@ class Map extends React.Component {
                     ,pincolor : 'yellow'
                 },
                 {
+                    key : 4,
                     latlng: {
                         latitude: -33.536749,
                         longitude:  -70.572970
@@ -58,7 +61,7 @@ class Map extends React.Component {
                 }}
                 showsUserLocation={true}>
                 {this.state.markers.map(marker => (
-                    <Marker
+                    <Marker key = {marker.key}
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}

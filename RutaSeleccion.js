@@ -3,38 +3,29 @@ import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import RutasAuth from './component/Autentificados/RutasAut';
 import  NoAutentificados from './component/NoAutentificados/RutaNoAutentificadas';
-import { accionGetSession} from './store/Action'
+import StackNav from './template/Drawer/StackNav'
 
 
-
-class RutaSeleccion extends React.Component {
+class RutaSeleccion extends Component {
    
-    componentWillUpdate(){
-        console.log('getSession',this.props.usuario);
-        this.props.getSession();
-    }
+    
     render() {
         const {navigation} = this.props;
-        return ( <View style={{ flex: 1 }}>            
-           <RutasAuth/>
-           
-           </View>         
+        console.log('this.props: ',this.props);
+        console.log('this.props[usuario]: ',this.props['usuario']);
+        console.log('this.props usuario: ',this.props.usuario);
+        return ( 
+        <View style={{ flex: 1, alignContent: 'center'}}>                    
+            {this.props.usuario && this.props.usuario.isLogin ? <StackNav/> :  <NoAutentificados/>}  
+        </View>         
         );
       }
 }
 
 const mapStateToProps = (state,ownProps) => {
     return {
-        usuario : state.reducerSesion,
-    }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        getSession: () => {
-            dispatch(accionGetSession());
-        }
+        usuario : state.reducerSession
     }
 }
  
-export default connect(mapStateToProps,mapDispatchToProps)(RutaSeleccion);
+export default connect(mapStateToProps,null)(RutaSeleccion);
