@@ -24,7 +24,7 @@ const LoginForm = (props) => {
             <Field name='password' component={field} ph='Contraseña' ste={'true'} />
             <View style = {styles.marginButtons}>
                 <GradientButtonApp colorBegin ="#D69C00" colorEnd = "#E7D000" direccion = "diagonal"
-                    title="Iniciar Sesión" action={props.handleSubmit( () => this.props.login)} />
+                    title="Iniciar Sesión" action={props.handleSubmit(props.login)} />
             </View>
         </View>
     );

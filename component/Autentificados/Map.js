@@ -16,13 +16,29 @@ class Map extends React.Component {
                         latitude: -33.535840,
                         longitude: -70.573289
                     },
-                    title: 'red barz',description:'sw'
+                    title: 'red barz',description:'Grupo de StreetWorkout'
+                    ,pincolor : 'red'
                 },
                 {
                     latlng: {
                         latitude: -33.535098,
                         longitude: -70.573366
-                    }, title: 'gym',description:'pacific'
+                    }, title: 'Gimnasio',description:'pacific'
+                    ,pincolor : 'blue'
+                },
+                {
+                    latlng: {
+                        latitude: -33.535801,
+                        longitude: -70.573646
+                    }, title: 'Biker',description:'Grupo de Ciclista'
+                    ,pincolor : 'yellow'
+                },
+                {
+                    latlng: {
+                        latitude: -33.536749,
+                        longitude:  -70.572970
+                    }, title: 'Slack',description:'Grupo aficionado al Slack'
+                    ,pincolor : 'grey'
                 }
             ]
         }
@@ -32,6 +48,8 @@ class Map extends React.Component {
         return (
             <MapView provider={PROVIDER_GOOGLE}
                 style={style.map}
+                maxZoomLevel = {20}
+                minZoomLevel = {15}
                 region={{
                     latitude: -33.535840,
                     longitude: -70.573289,
@@ -44,6 +62,7 @@ class Map extends React.Component {
                         coordinate={marker.latlng}
                         title={marker.title}
                         description={marker.description}
+                        pinColor = {marker.pincolor}
                     />
                 ))}
             </MapView>
@@ -54,6 +73,7 @@ class Map extends React.Component {
 const style = StyleSheet.create({
     map: {
         ...StyleSheet.absoluteFillObject,
+        marginLeft : 5
     }
 });
 

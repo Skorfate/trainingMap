@@ -1,18 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import RutaNoAutentificada from './component/NoAutentificados/RutaNoAutentificadas';
 import {Provider} from 'react-redux';
 import Store from './store/store';
-import Map from './component/Autentificados/Map';
+import RutaSeleccion from './RutaSeleccion';
 export default function App() {
-  return (
-    
+  return (    
     <Provider store={Store}>
-        <RutaNoAutentificada/>
+        <RutaSeleccion/>
     </Provider>
-  
-   
-    
   );
 }
 
