@@ -14,7 +14,7 @@ class Login extends React.Component {
       
         return (           
             <View style={{ justifyContent: 'center',padding: 30, alignContent: 'center', flex:2 }}>
-                <Image style={{width: 200, height: 200,justifyContent: 'center', alignContent: 'center', alignSelf:'center'}} source={require('../../assets/logo.png')}/>
+                <Image style={{marginBottom:15, width: 260, height: 200,justifyContent: 'center', alignContent: 'center', alignSelf:'center'}} source={require('../../assets/logo.png')}/>
                 <LoginForm login={this.loginUsuaruio}/>
                 {this.props.usuario && this.props.usuario.isError && <Text style={{ color: 'red' }}>Usuario invalido</Text>}
             </View>
