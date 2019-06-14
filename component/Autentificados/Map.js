@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { Marker } from 'react-native-maps';
+import {  StyleSheet,
+    View,
+    Text,
+    Dimensions,
+    TouchableOpacity,
+    Alert, } from 'react-native';
+import MapView, { PROVIDER_GOOGLE ,Marker, Callout,
+    CalloutSubview,
+    ProviderPropType,} from 'react-native-maps';
+
+import CustomCallout from './CustomCallout';
 
 
 class Map extends React.Component {
@@ -10,6 +18,7 @@ class Map extends React.Component {
         super();
 
         this.state = {
+            cnt: 0,
             markers :[
                 {   key : 1,
                     latlng: {
@@ -47,10 +56,17 @@ class Map extends React.Component {
         }
     }
 
+    show() {
+        this.marker1.showCallout();
+      }
+    
+      hide() {
+        this.marker1.hideCallout();
+      }
     render() {
         return (
             <MapView provider={PROVIDER_GOOGLE}
-                style={style.map}
+                style={styles.map}
                 maxZoomLevel = {20}
                 minZoomLevel = {15}
                 region={{
@@ -66,18 +82,79 @@ class Map extends React.Component {
                         title={marker.title}
                         description={marker.description}
                         pinColor = {marker.pincolor}
-                    />
+                   >
+                   <Callout style={styles.plainView}>
+                  <View>
+                    <Text>This is a plain view</Text>
+                  </View>
+                </Callout>
+
+                   </Marker>
                 ))}
             </MapView>
         );
     }
+
+
+    
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     map: {
         ...StyleSheet.absoluteFillObject,
         marginLeft : 5
-    }
+    },
+    customView: {
+        width: 140,
+        height: 140,
+      },
+      plainView: {
+        width: 60,
+      },
+      container: {
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+      },
+      map: {
+        ...StyleSheet.absoluteFillObject,
+      },
+      bubble: {
+        flex: 1,
+        backgroundColor: 'rgba(255,255,255,0.7)',
+        paddingHorizontal: 18,
+        paddingVertical: 12,
+        borderRadius: 20,
+      },
+      latlng: {
+        width: 200,
+        alignItems: 'stretch',
+      },
+      button: {
+        width: 80,
+        paddingHorizontal: 12,
+        alignItems: 'center',
+        marginHorizontal: 10,
+      },
+      buttonContainer: {
+        flexDirection: 'row',
+        marginVertical: 20,
+        backgroundColor: 'transparent',
+      },
+      calloutButton: {
+        width: 'auto',
+        backgroundColor: 'rgba(255,255,255,0.7)',
+        paddingHorizontal: 6,
+        paddingVertical: 6,
+        borderRadius: 12,
+        alignItems: 'center',
+        marginHorizontal: 10,
+        marginVertical: 10,
+      },
 });
+
+Map.propTypes = {
+    provider: ProviderPropType,
+  };
 
 export default Map;

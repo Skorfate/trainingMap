@@ -27,7 +27,7 @@ const navigationOptions = {
         }
     }
 };
-/*
+
 const RutasAuth = createDrawerNavigator(
     {
         map: {
@@ -60,6 +60,27 @@ const RutasAuth = createDrawerNavigator(
 
     },
     {
+      
+        drawerBackgroundColor: 'white',
+        contentOptions: {
+            activeTintColor: 'blue',
+            activeBackgroundColor: 'transparent',
+            inactiveTintColor: 'red',
+            itemsConstainerStyle: {
+                marginVertical : 4,
+            }
+        },  
+        defaultNavigationOptions : navigationOptions
+    }
+);
+/*
+const RutasAuth = createDrawerNavigator(
+    {
+        map: Mapa,
+        Salir : Mapa,
+        Contacto : Mapa
+    },
+    {
         contentComponent: MenuDrawer,
         drawerBackgroundColor: 'white',
         contentOptions: {
@@ -73,27 +94,6 @@ const RutasAuth = createDrawerNavigator(
         defaultNavigationOptions : navigationOptions
     }
 );*/
-
-const RutasAuth = createDrawerNavigator(
-    {
-        map: Mapa,
-        Salir : Mapa,
-        Contacto : Mapa
-    },
-    {
-        
-        drawerBackgroundColor: 'white',
-        contentOptions: {
-            activeTintColor: 'blue',
-            activeBackgroundColor: 'transparent',
-            inactiveTintColor: 'red',
-            itemsConstainerStyle: {
-                marginVertical : 4,
-            }
-        },  
-        defaultNavigationOptions : navigationOptions
-    }
-);
 
 
 export default createAppContainer(RutasAuth);

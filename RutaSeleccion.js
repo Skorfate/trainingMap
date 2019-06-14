@@ -16,7 +16,7 @@ class RutaSeleccion extends Component {
         console.log('this.props usuario: ',this.props.usuario);
         return ( 
         <View style={{ flex: 1, alignContent: 'center'}}>                    
-            {this.props.usuario && this.props.usuario.isLogin ? <StackNav/> :  <NoAutentificados/>}  
+            {!this.props.usuario || this.props.usuario.isLogin ? <StackNav/> :  <NoAutentificados/>}  
         </View>         
         );
       }
